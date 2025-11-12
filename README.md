@@ -1,21 +1,21 @@
-# 📰 **Newsly App** — Consumo seguro de API REST (NewsAPI)
+# Consumo seguro de API REST (NewsAPI)
 
-## 🌐 Descripción general
-**Newsly** es una aplicación Flutter que consume la API pública de **[NewsAPI](https://newsapi.org/)** para mostrar las noticias más recientes de manera visual y atractiva.  
+## Descripción general
+Proyecto de Flutter que consume la API pública de **[NewsAPI](https://newsapi.org/)** para mostrar las noticias más recientes de manera visual y atractiva.  
 El proyecto implementa buenas prácticas de seguridad, manejo de errores y lectura de credenciales mediante un archivo `.env` protegido.  
 
 ---
 
-## 🎯 **Objetivo del laboratorio**
+## **Objetivo**
 Consumir una API REST externa de forma **segura** y mostrar los datos en una interfaz moderna, manejando correctamente los diferentes estados de la app:  
-- 🔄 Cargando  
-- ❌ Error  
-- 📭 Sin datos  
-- ✅ Éxito  
+- Cargando  
+- Error  
+- Sin datos  
+- Éxito  
 
 ---
 
-## ⚙️ **Dependencias utilizadas**
+## **Dependencias utilizadas**
 
 | Paquete | Descripción |
 |----------|--------------|
@@ -25,16 +25,16 @@ Consumir una API REST externa de forma **segura** y mostrar los datos en una int
 
 ---
 
-## 🔐 **Manejo de secretos**
+## **Manejo de secretos**
 
 El proyecto utiliza un archivo `.env` para almacenar la API key de **NewsAPI**, el cual **no se commitea** al repositorio por seguridad.
 
-📄 **Ejemplo de `.env`**
+**Ejemplo de `.env`**
 ```env
 NEWS_API_KEY=tu_api_key_aqui
 ```
 
-📌 **Carga en el proyecto (`main.dart`):**
+**Carga en el proyecto (`main.dart`):**
 
 ```dart
 import 'package:flutter_dotenv/flutter_dotenv.dart';
@@ -45,7 +45,7 @@ Future<void> main() async {
 }
 ```
 
-📌 **Lectura segura en el servicio:**
+**Lectura segura en el servicio:**
 
 ```dart
 final apiKey = dotenv.env['NEWS_API_KEY'];
@@ -57,30 +57,30 @@ final apiKey = dotenv.env['NEWS_API_KEY'];
 
 ```
 lib/
- ┣ 📁 services/
+ ┣ services/
  ┃ ┗ news_service.dart   → Lógica para consumir la API y manejar errores.
- ┣ 📁 widgets/
+ ┣ widgets/
  ┃ ┗ news_card.dart      → Componente visual de cada noticia.
- ┣ 📁 pages/
+ ┣ pages/
  ┃ ┗ home_page.dart      → Pantalla principal con los estados y listado.
  ┗ main.dart             → Punto de entrada y carga del .env
 ```
 
 ---
 
-## 🧠 **Características implementadas**
+##  **Características implementadas**
 
-✅ Consumo seguro mediante **HTTPS**  
-✅ Manejo de **timeouts** y **errores HTTP**  
-✅ Estados: *cargando*, *error* y *vacío*  
-✅ Validación visual: evita mostrar noticias sin imagen  
-✅ Interfaz adaptativa con colores navy blue y estilo moderno  
-✅ Uso de `flutter_dotenv` para la API Key  
-✅ Peticiones GET con parseo JSON y control de excepciones  
+Consumo seguro mediante **HTTPS**  
+Manejo de **timeouts** y **errores HTTP**  
+Estados: *cargando*, *error* y *vacío*  
+Validación visual: evita mostrar noticias sin imagen  
+Interfaz adaptativa con colores navy blue y estilo moderno  
+Uso de `flutter_dotenv` para la API Key  
+Peticiones GET con parseo JSON y control de excepciones  
 
 ---
 
-## 💡 **Buenas prácticas aplicadas**
+##  **Buenas prácticas aplicadas**
 
 * **Sanitización** de texto (evita strings vacíos o nulos en título/descripción).
 * **Validación de imagen:** si la URL no es válida, usa un *placeholder*.
@@ -88,31 +88,13 @@ lib/
 * **Separación lógica:** UI, servicios y componentes independientes.
 * **Seguridad:** `.env` fuera del control de versiones (`.gitignore`).
 
----
 
-## 🧪 **Pruebas**
-
-Se realizaron pruebas en:
-
-* ✅ Emulador Android (Pixel 7)
-* ✅ Navegador Web (Flutter Web)
-* ✅ Dispositivo físico Android
-
-Todos los entornos presentan correctamente los estados:
-
-* 🔄 *Cargando...* (`CircularProgressIndicator`)
-* ❌ *Error* (por API Key incorrecta o sin conexión)
-* 📭 *Sin datos* (mensaje claro)
-* ✅ *Éxito* (listado de noticias con botón **Ver más**)
-
----
-
-## 🚀 **Cómo ejecutar el proyecto**
+##  **Cómo ejecutar el proyecto**
 
 1. Clona el repositorio:
 
    ```bash
-   git clone https://github.com/tuusuario/newsly_app.git
+   git clone https://github.com/HelenVr04/Consumo-de-Api.git
    ```
 
 2. Instala dependencias:
@@ -135,10 +117,8 @@ Todos los entornos presentan correctamente los estados:
 
 ---
 
-## 📸 **Evidencias sugeridas**
+## **Evidencias **
 
 * Pantalla de carga
 * Pantalla principal con noticias
 * Estado vacío
-* Estado de error
-* Pruebas en emulador y dispositivo físico
