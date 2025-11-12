@@ -70,13 +70,13 @@ lib/
 
 ##  **Características implementadas**
 
-Consumo seguro mediante **HTTPS**  
-Manejo de **timeouts** y **errores HTTP**  
-Estados: *cargando*, *error* y *vacío*  
-Validación visual: evita mostrar noticias sin imagen  
-Interfaz adaptativa con colores navy blue y estilo moderno  
-Uso de `flutter_dotenv` para la API Key  
-Peticiones GET con parseo JSON y control de excepciones  
+* Consumo seguro mediante **HTTPS**  
+* Manejo de **timeouts** y **errores HTTP**  
+* Estados: *cargando*, *error* y *vacío*  
+* Validación visual: evita mostrar noticias sin imagen  
+* Interfaz adaptativa con colores navy blue y estilo moderno  
+* Uso de `flutter_dotenv` para la API Key  
+* Peticiones GET con parseo JSON y control de excepciones  
 
 ---
 
