@@ -39,6 +39,15 @@ app.*.symbols
 # Obfuscation related
 app.*.map.json
 
+# Ignorar JDK y archivos grandes
+oracleJdk-25/
+*.zip
+*.rar
+*.exe
+*.jar
+*.mp4
+*.apk
+
 # Android Studio will place build artifacts here
 /android/app/debug
 /android/app/profile
