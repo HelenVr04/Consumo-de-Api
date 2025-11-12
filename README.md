@@ -1,16 +1,144 @@
-# news_app
+# 📰 **Newsly App** — Consumo seguro de API REST (NewsAPI)
 
-A new Flutter project.
+## 🌐 Descripción general
+**Newsly** es una aplicación Flutter que consume la API pública de **[NewsAPI](https://newsapi.org/)** para mostrar las noticias más recientes de manera visual y atractiva.  
+El proyecto implementa buenas prácticas de seguridad, manejo de errores y lectura de credenciales mediante un archivo `.env` protegido.  
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🎯 **Objetivo del laboratorio**
+Consumir una API REST externa de forma **segura** y mostrar los datos en una interfaz moderna, manejando correctamente los diferentes estados de la app:  
+- 🔄 Cargando  
+- ❌ Error  
+- 📭 Sin datos  
+- ✅ Éxito  
 
-A few resources to get you started if this is your first Flutter project:
+---
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+## ⚙️ **Dependencias utilizadas**
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+| Paquete | Descripción |
+|----------|--------------|
+| [`http`](https://pub.dev/packages/http) | Realiza peticiones HTTPS a la API. |
+| [`flutter_dotenv`](https://pub.dev/packages/flutter_dotenv) | Maneja variables de entorno de forma segura (para la API Key). |
+| [`url_launcher`](https://pub.dev/packages/url_launcher) | Abre las noticias en el navegador externo. |
+
+---
+
+## 🔐 **Manejo de secretos**
+
+El proyecto utiliza un archivo `.env` para almacenar la API key de **NewsAPI**, el cual **no se commitea** al repositorio por seguridad.
+
+📄 **Ejemplo de `.env`**
+```env
+NEWS_API_KEY=tu_api_key_aqui
+```
+
+📌 **Carga en el proyecto (`main.dart`):**
+
+```dart
+import 'package:flutter_dotenv/flutter_dotenv.dart';
+
+Future<void> main() async {
+  await dotenv.load(fileName: ".env");
+  runApp(const MyApp());
+}
+```
+
+📌 **Lectura segura en el servicio:**
+
+```dart
+final apiKey = dotenv.env['NEWS_API_KEY'];
+```
+
+---
+
+## 🧩 **Estructura del proyecto**
+
+```
+lib/
+ ┣ 📁 services/
+ ┃ ┗ news_service.dart   → Lógica para consumir la API y manejar errores.
+ ┣ 📁 widgets/
+ ┃ ┗ news_card.dart      → Componente visual de cada noticia.
+ ┣ 📁 pages/
+ ┃ ┗ home_page.dart      → Pantalla principal con los estados y listado.
+ ┗ main.dart             → Punto de entrada y carga del .env
+```
+
+---
+
+## 🧠 **Características implementadas**
+
+✅ Consumo seguro mediante **HTTPS**  
+✅ Manejo de **timeouts** y **errores HTTP**  
+✅ Estados: *cargando*, *error* y *vacío*  
+✅ Validación visual: evita mostrar noticias sin imagen  
+✅ Interfaz adaptativa con colores navy blue y estilo moderno  
+✅ Uso de `flutter_dotenv` para la API Key  
+✅ Peticiones GET con parseo JSON y control de excepciones  
+
+---
+
+## 💡 **Buenas prácticas aplicadas**
+
+* **Sanitización** de texto (evita strings vacíos o nulos en título/descripción).
+* **Validación de imagen:** si la URL no es válida, usa un *placeholder*.
+* **Manejo visual de errores:** muestra mensaje claro al usuario.
+* **Separación lógica:** UI, servicios y componentes independientes.
+* **Seguridad:** `.env` fuera del control de versiones (`.gitignore`).
+
+---
+
+## 🧪 **Pruebas**
+
+Se realizaron pruebas en:
+
+* ✅ Emulador Android (Pixel 7)
+* ✅ Navegador Web (Flutter Web)
+* ✅ Dispositivo físico Android
+
+Todos los entornos presentan correctamente los estados:
+
+* 🔄 *Cargando...* (`CircularProgressIndicator`)
+* ❌ *Error* (por API Key incorrecta o sin conexión)
+* 📭 *Sin datos* (mensaje claro)
+* ✅ *Éxito* (listado de noticias con botón **Ver más**)
+
+---
+
+## 🚀 **Cómo ejecutar el proyecto**
+
+1. Clona el repositorio:
+
+   ```bash
+   git clone https://github.com/tuusuario/newsly_app.git
+   ```
+
+2. Instala dependencias:
+
+   ```bash
+   flutter pub get
+   ```
+
+3. Crea el archivo `.env` en la raíz del proyecto:
+
+   ```env
+   NEWS_API_KEY=tu_api_key_aqui
+   ```
+
+4. Ejecuta la app:
+
+   ```bash
+   flutter run
+   ```
+
+---
+
+## 📸 **Evidencias sugeridas**
+
+* Pantalla de carga
+* Pantalla principal con noticias
+* Estado vacío
+* Estado de error
+* Pruebas en emulador y dispositivo físico
