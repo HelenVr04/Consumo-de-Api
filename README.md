@@ -119,6 +119,9 @@ lib/
 
 ## **Evidencias**
 
+
 * Pantalla de carga
 * Pantalla principal con noticias
+https://github.com/user-attachments/assets/c7031b24-d290-493a-ab42-cd28795635cb
+
 * Estado vacío
