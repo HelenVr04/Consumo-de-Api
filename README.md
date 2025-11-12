@@ -53,7 +53,7 @@ final apiKey = dotenv.env['NEWS_API_KEY'];
 
 ---
 
-## 🧩 **Estructura del proyecto**
+##  **Estructura del proyecto**
 
 ```
 lib/
@@ -117,7 +117,7 @@ Peticiones GET con parseo JSON y control de excepciones
 
 ---
 
-## **Evidencias **
+## **Evidencias**
 
 * Pantalla de carga
 * Pantalla principal con noticias
