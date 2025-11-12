@@ -121,7 +121,11 @@ lib/
 
 
 * Pantalla de carga
+<img width="598" height="525" alt="image" src="https://github.com/user-attachments/assets/ad3894d9-c025-4d59-9487-237aca02ca59" />
+
 * Pantalla principal con noticias
 https://github.com/user-attachments/assets/c7031b24-d290-493a-ab42-cd28795635cb
 
 * Estado vacío
+<img width="601" height="639" alt="image" src="https://github.com/user-attachments/assets/f24a66e8-79e1-4b1d-8189-adfaa9ea7fcb" />
+
